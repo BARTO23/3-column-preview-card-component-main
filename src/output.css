@@ -7,12 +7,20 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --text-sm: 0.875rem;
-    --text-sm--line-height: calc(1.25 / 0.875);
-    --text-lg: 1.125rem;
-    --text-lg--line-height: calc(1.75 / 1.125);
+    --spacing: 0.25rem;
+    --radius-lg: 0.5rem;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-Bright-orange: hsl(31, 77%, 52%);
+    --color-Dark-cyan: hsl(184, 100%, 22%);
+    --color-Very-dark-cyan: hsl(179, 100%, 13%);
+    --color-Transparent-white: hsla(0, 0%, 100%, 0.75);
+    --color-Very-light-gray: hsl(0, 0%, 95%);
+    --font-Lexend-Deca: "Lexend Deca", sans-serif;
+    --font-Big-Shoulders: "Big Shoulders", sans-serif;
   }
 }
 @layer base {
@@ -164,47 +172,123 @@
   .static {
     position: static;
   }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-\[35px\] {
+    margin-bottom: 35px;
+  }
   .contents {
     display: contents;
+  }
+  .flex {
+    display: flex;
   }
   .table {
     display: table;
   }
+  .h-12 {
+    height: calc(var(--spacing) * 12);
+  }
+  .h-screen {
+    height: 100vh;
+  }
+  .w-\[1\] {
+    width: 1;
+  }
+  .w-\[146px\] {
+    width: 146px;
+  }
+  .w-\[327px\] {
+    width: 327px;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
+  .cursor-pointer {
+    cursor: pointer;
+  }
   .resize {
     resize: both;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .rounded-\[25px\] {
+    border-radius: 25px;
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
   }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .text-lg {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
+  .border-Very-light-gray {
+    border-color: var(--color-Very-light-gray);
   }
-  .text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
+  .bg-Bright-orange {
+    background-color: var(--color-Bright-orange);
+  }
+  .bg-Dark-cyan {
+    background-color: var(--color-Dark-cyan);
+  }
+  .bg-Very-dark-cyan {
+    background-color: var(--color-Very-dark-cyan);
+  }
+  .bg-Very-light-gray {
+    background-color: var(--color-Very-light-gray);
+  }
+  .p-\[48\] {
+    padding: 48;
+  }
+  .p-\[48px\] {
+    padding: 48px;
+  }
+  .font-Big-Shoulders {
+    font-family: var(--font-Big-Shoulders);
+  }
+  .font-Lexend-Deca {
+    font-family: var(--font-Lexend-Deca);
   }
   .text-\[0\.9375rem\] {
     font-size: 0.9375rem;
   }
-  .text-\[15px\] {
-    font-size: 15px;
+  .text-\[2\.5rem\] {
+    font-size: 2.5rem;
   }
-  .text-\[0\.9\] {
-    color: 0.9;
+  .text-Bright-orange {
+    color: var(--color-Bright-orange);
   }
-  .text-\[0\.93\] {
-    color: 0.93;
+  .text-Dark-cyan {
+    color: var(--color-Dark-cyan);
   }
-  .text-\[0\.932\] {
-    color: 0.932;
+  .text-Transparent-white {
+    color: var(--color-Transparent-white);
   }
-  .text-\[0\] {
-    color: 0;
+  .text-Very-dark-cyan {
+    color: var(--color-Very-dark-cyan);
+  }
+  .text-Very-light-gray {
+    color: var(--color-Very-light-gray);
+  }
+  .uppercase {
+    text-transform: uppercase;
   }
   .underline {
     text-decoration-line: underline;
@@ -213,6 +297,76 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .hover\:border-2 {
+    &:hover {
+      @media (hover: hover) {
+        border-style: var(--tw-border-style);
+        border-width: 2px;
+      }
+    }
+  }
+  .hover\:border-Very-light-gray {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-Very-light-gray);
+      }
+    }
+  }
+  .hover\:bg-Bright-orange {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-Bright-orange);
+      }
+    }
+  }
+  .hover\:bg-Dark-cyan {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-Dark-cyan);
+      }
+    }
+  }
+  .hover\:bg-Very-dark-cyan {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-Very-dark-cyan);
+      }
+    }
+  }
+  .hover\:text-Very-light-gray {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-Very-light-gray);
+      }
+    }
+  }
+}
+@font-face {
+  font-family: "Big Shoulders";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/Big_Shoulders/BigShoulders-VariableFont_opsz\,wght.ttf;") format("woff2");
+}
+@font-face {
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf") format("woff2");
 }
 @property --tw-border-style {
   syntax: "*";
@@ -224,11 +378,21 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
       --tw-outline-style: solid;
+      --tw-duration: initial;
+      --tw-ease: initial;
     }
   }
 }
